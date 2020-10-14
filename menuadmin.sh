@@ -15,7 +15,7 @@ do
 	    echo "Introdueix la contrasenya de l'usuari a crear"
 	    read PASSWD
 	 sudo useradd -c $NOMCOMPLET -m $NOMUSUARI
-echo $NOMUSUARI:$PASSWD | chpasswd
+echo "$NOMUSUARI:$PASSWD" | chpasswd
 		sudo mkdir /home/${NOMUSUARI,,}/ftp
 		sudo chown nobody:nogroup /home/${NOMUSUARI,,}/ftp
 		sudo chmod a-w /home/${NOMUSUARI,,}/ftp 
@@ -24,10 +24,10 @@ echo $NOMUSUARI:$PASSWD | chpasswd
             echo "--> Actualitzant..."
 		git stash && git pull
             ;;
-        "Option 3")
+        "Obtenir informació interessant")
             echo "you chose choice $REPLY which is $opt"
             ;;
-        "Quit")
+        "Sortir")
             break
             ;;
         *) echo "invalid option $REPLY";;
