@@ -22,7 +22,7 @@ echo $NOMUSUARI+":"+$PASSWD | chpasswd
             ;;
         "Actualitzar aquest programa")
             echo "--> Actualitzant..."
-		git pull
+		git stash && git pull
             ;;
         "Option 3")
             echo "you chose choice $REPLY which is $opt"
