@@ -15,7 +15,7 @@ do
 	    echo "Introdueix la contrasenya de l'usuari a crear"
 	    read PASSWD
 	 sudo useradd -c $NOMCOMPLET -m $NOMUSUARI
-echo $NOMUSUARI+":"+$PASSWD | chpasswd
+echo $NOMUSUARI:$PASSWD | chpasswd
 		sudo mkdir /home/${NOMUSUARI,,}/ftp
 		sudo chown nobody:nogroup /home/${NOMUSUARI,,}/ftp
 		sudo chmod a-w /home/${NOMUSUARI,,}/ftp 
