@@ -24,9 +24,11 @@ sudo echo "$NOMUSUARI:$PASSWD" | sudo chpasswd
             echo "--> Actualitzant..."
 		git stash && git pull
 		sudo chmod +x ./menuadmin.sh
+		./menuadmin.sh
             ;;
         "Obtenir informació interessant")
-            echo "you chose choice $REPLY which is $opt"
+            echo "--> Llistat d'usuaris"
+	    awk -F: '{ print $1}' /etc/passwd
             ;;
         "Sortir")
             break
