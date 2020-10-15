@@ -23,6 +23,7 @@ sudo echo "$NOMUSUARI:$PASSWD" | sudo chpasswd
         "Actualitzar aquest programa")
             echo "--> Actualitzant..."
 		git stash && git pull
+		sudo chmod +x ./menuadmin.sh
             ;;
         "Obtenir informació interessant")
             echo "you chose choice $REPLY which is $opt"
