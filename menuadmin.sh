@@ -7,7 +7,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Crear un nou usuari")
-		for user in `more user-list1.txt`
+		for user in `more ../user-list.txt`
 do
 echo "$user"
 
