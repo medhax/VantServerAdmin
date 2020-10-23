@@ -7,18 +7,19 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Crear un nou usuari")
-		
-            echo "--> Introdueix el nom d'usuari a crear"
-	    read NOMUSUARI
-	    echo "--> Introdueix el nom complet de l'usuari a crear"
-	    read NOMCOMPLET
-	    echo "--> Introdueix la contrasenya de l'usuari a crear"
-	    read PASSWD
-	 sudo useradd -c $NOMCOMPLET -m $NOMUSUARI
-sudo echo "$NOMUSUARI:$PASSWD" | sudo chpasswd
+		for user in `more user-list1.txt`
+do
+echo "$user"
+
+chage -d 0 $user
+
+            
+	 sudo useradd -c $user -m $user
+sudo echo "$user:$user" | sudo chpasswd
 		sudo mkdir /home/${NOMUSUARI,,}/ftp
 		sudo chown nobody:nogroup /home/${NOMUSUARI,,}/ftp
 		sudo chmod a-w /home/${NOMUSUARI,,}/ftp 
+		done
             ;;
         "Actualitzar aquest programa")
             echo "--> Actualitzant..."
