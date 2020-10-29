@@ -16,9 +16,9 @@ chage -d 0 $user
             
 	 sudo useradd -c $user -m $user
 sudo echo "$user:$user" | sudo chpasswd
-		sudo mkdir /home/${NOMUSUARI,,}/ftp
-		sudo chown nobody:nogroup /home/${NOMUSUARI,,}/ftp
-		sudo chmod a-w /home/${NOMUSUARI,,}/ftp 
+		sudo mkdir /home/${user,,}/ftp
+		sudo chown nobody:nogroup /home/${user,,}/ftp
+		sudo chmod a-w /home/${user,,}/ftp 
 		done
             ;;
         "Actualitzar aquest programa")
