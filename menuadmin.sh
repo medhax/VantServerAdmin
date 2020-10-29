@@ -19,6 +19,7 @@ sudo echo "$user:$user" | sudo chpasswd
 		sudo mkdir /home/${user,,}/ftp
 		sudo chown nobody:nogroup /home/${user,,}/ftp
 		sudo chmod a-w /home/${user,,}/ftp 
+		sudo echo "$user" >> /etc/vsftpd.chroot_list
 		done
             ;;
         "Actualitzar aquest programa")
