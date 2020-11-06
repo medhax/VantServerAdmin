@@ -6,7 +6,7 @@ options=("Crear els usuaris" "Eliminar un usuari" "Actualitzar aquest programa" 
 select opt in "${options[@]}"
 do
     case $opt in
-        "Crear un nou usuari")
+        "Crear els usuaris")
 		for user in $(more ../user-list.txt)
 do
 echo "$user"
