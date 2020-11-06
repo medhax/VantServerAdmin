@@ -7,21 +7,21 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Crear un nou usuari")
-		for user in `more ../user-list.txt`
+		for user in $(more ../user-list.txt)
 do
 echo "$user"
 
-chage -d 0 $user
+chage -d 0 "$user"
 
             
-	 sudo useradd -c $user -m $user
+	 sudo useradd -c "$user" -m "$user"
 sudo echo "$user:$user" | sudo chpasswd
-		sudo mkdir /home/${user,,}/ftp
-		sudo mkdir /var/www/alumnes/${user,,}
-		sudo chown nobody:nogroup /home/${user,,}/ftp
-		sudo chmod a-w /home/${user,,}/ftp 
-		sudo chown nobody:nogroup /var/www/alumnes/${user,,}
-		sudo chmod a-w /var/www/alumnes/${user,,}
+		sudo mkdir /home/"${user,,}"/ftp
+		sudo mkdir /var/www/alumnes/"${user,,}"
+		sudo chown nobody:nogroup /home/"${user,,}"/ftp
+		sudo chmod a-w /home/"${user,,}"/ftp 
+		sudo chown nobody:nogroup /var/www/alumnes/"${user,,}"
+		sudo chmod a-w /var/www/alumnes/"${user,,}"
 		sudo echo "$user" >> /etc/vsftpd.chroot_list
 		done
             ;;
@@ -34,7 +34,7 @@ sudo echo "$user:$user" | sudo chpasswd
 	     "Eliminar un usuari")
             echo "--> Introdueix el nom de l'usuari a eliminar: "
 	    read NOMUSUARIDEL
-		sudo userdel $NOMUSUARIDEL
+		sudo userdel "$NOMUSUARIDEL"
             ;;
         "Obtenir informació interessant")
             echo "--> Llistat d'usuaris"
@@ -46,5 +46,3 @@ sudo echo "$user:$user" | sudo chpasswd
         *) echo "invalid option $REPLY";;
     esac
 done
-	
-
