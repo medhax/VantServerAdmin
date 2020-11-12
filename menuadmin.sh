@@ -22,6 +22,8 @@ sudo echo "$user:$user" | sudo chpasswd
 		sudo chmod a-w /home/"${user,,}"/ftp 
 		sudo chown nobody:nogroup /var/www/alumnes/"${user,,}"
 		sudo chmod a-w /var/www/alumnes/"${user,,}"
+		ln -s /var/www/alumnes/"${user,,}" /home/"${user,,}"/ftp 
+
 		sudo echo "$user" >> /etc/vsftpd.chroot_list
 		done
             ;;
