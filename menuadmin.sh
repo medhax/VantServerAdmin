@@ -23,7 +23,7 @@ sudo echo "$user:$user" | sudo chpasswd
 		sudo chown nobody:nogroup /var/www/alumnes/"${user,,}"
 		sudo chmod a-w /var/www/alumnes/"${user,,}"
 		unlink /home/"${user,,}"/ftp 
-		mount --bind /var/www/alumnes/"${user,,}" /home/"${user,,}"/ftp 
+		mount --bind /var/www/alumnes/"${user,,}" /home/"${user,,}"/ftp/"${user,,}"
 
 		sudo echo "$user" >> /etc/vsftpd.chroot_list
 		done
